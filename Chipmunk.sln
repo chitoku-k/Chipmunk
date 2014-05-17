@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chipmunk", "Chipmunk\Chipmunk.csproj", "{E85DD47F-90B6-46CC-9406-40DF67945215}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chipmunk.Sample", "Chipmunk.Sample\Chipmunk.Sample.csproj", "{2FC9197A-29B5-48A0-98DE-27FAD3A1B281}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E85DD47F-90B6-46CC-9406-40DF67945215} = {E85DD47F-90B6-46CC-9406-40DF67945215}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E85DD47F-90B6-46CC-9406-40DF67945215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E85DD47F-90B6-46CC-9406-40DF67945215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E85DD47F-90B6-46CC-9406-40DF67945215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E85DD47F-90B6-46CC-9406-40DF67945215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FC9197A-29B5-48A0-98DE-27FAD3A1B281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FC9197A-29B5-48A0-98DE-27FAD3A1B281}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FC9197A-29B5-48A0-98DE-27FAD3A1B281}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FC9197A-29B5-48A0-98DE-27FAD3A1B281}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

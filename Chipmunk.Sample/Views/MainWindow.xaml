@@ -1,0 +1,87 @@
+﻿<Window x:Class="Chipmunk.Sample.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewModels="clr-namespace:Chipmunk.Sample.ViewModels"
+        xmlns:converters="clr-namespace:Chipmunk.Sample.Views.Converters"
+        Title="Chipmunk Sample" 
+        Name="Window"
+        MinHeight="185"
+        Height="{Binding MinHeight, ElementName=Window}"
+        MinWidth="700"
+        Width="{Binding MinWidth, ElementName=Window}"
+        FontFamily="Meiryo"
+        xmlns:cm="clr-namespace:Chipmunk;assembly=Chipmunk"
+        cm:WindowBehavior.DwmComposition="{Binding DwmComposition}"
+        cm:WindowBehavior.IsIconVisible="False"
+        cm:WindowBehavior.IsMinimizeButtonEnabled="{Binding IsMinimizeButtonEnabled}"
+        cm:WindowBehavior.IsMaximizeButtonEnabled="{Binding IsMaximizeButtonEnabled}"
+        cm:WindowBehavior.IsHelpButtonEnabled="{Binding IsHelpButtonEnabled}"
+        cm:WindowBehavior.IsCloseButtonEnabled="{Binding IsCloseButtonEnabled}"
+        cm:WindowBehavior.IsControlButtonVisible="{Binding IsControlButtonVisible}"
+        cm:WindowBehavior.NonClientArea="{Binding ElementName=Window}">
+    <Window.Resources>
+        <Style TargetType="cm:NumericUpDown">
+            <Setter Property="Width" Value="55" />
+            <Setter Property="Margin" Value="0,0,6,0" />
+            <Setter Property="Minimum" Value="-1" />
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        </Style>
+        <converters:BoolInvertConverter x:Key="BoolInvertConverter" />
+    </Window.Resources>
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Margin="20,8">
+                <TextBlock Text="アイコン" Margin="0,0,0,3" />
+                <RadioButton Content="表示" IsEnabled="False" />
+                <RadioButton Content="非表示" IsEnabled="False" IsChecked="True" />
+            </StackPanel>
+            <StackPanel Margin="20,8">
+                <TextBlock Text="最小化ボタン" Margin="0,0,0,3" />
+                <RadioButton Content="有効" IsChecked="{Binding IsMinimizeButtonEnabled}" />
+                <RadioButton Content="無効" IsChecked="{Binding IsMinimizeButtonEnabled, Converter={StaticResource BoolInvertConverter}}" />
+            </StackPanel>
+            <StackPanel Margin="20,8">
+                <TextBlock Text="最大化ボタン" Margin="0,0,0,3" />
+                <RadioButton Content="有効" IsChecked="{Binding IsMaximizeButtonEnabled}" />
+                <RadioButton Content="無効" IsChecked="{Binding IsMaximizeButtonEnabled, Converter={StaticResource BoolInvertConverter}}" />
+            </StackPanel>
+            <StackPanel Margin="20,8">
+                <TextBlock Text="ヘルプボタン" Margin="0,0,0,3" />
+                <RadioButton Content="有効" IsChecked="{Binding IsHelpButtonEnabled}" />
+                <RadioButton Content="無効" IsChecked="{Binding IsHelpButtonEnabled, Converter={StaticResource BoolInvertConverter}}" />
+            </StackPanel>
+            <StackPanel Margin="20,8">
+                <TextBlock Text="閉じるボタン" Margin="0,0,0,3" />
+                <RadioButton Content="有効" IsChecked="{Binding IsCloseButtonEnabled}" />
+                <RadioButton Content="無効" IsChecked="{Binding IsCloseButtonEnabled, Converter={StaticResource BoolInvertConverter}}" />
+            </StackPanel>
+            <StackPanel Margin="20,8">
+                <TextBlock Text="システムメニュー" Margin="0,0,0,3" />
+                <RadioButton Content="有効" IsChecked="{Binding IsControlButtonVisible}" />
+                <RadioButton Content="無効" IsChecked="{Binding IsControlButtonVisible, Converter={StaticResource BoolInvertConverter}}" />
+            </StackPanel>
+            <StackPanel Margin="20,8">
+                <TextBlock Text="デスクトップ合成" Margin="0,0,0,8" />
+                <StackPanel Orientation="Horizontal">
+                    <cm:NumericUpDown Maximum="{Binding ActualWidth, ElementName=Window}" Value="{Binding DwmMarginLeft}" />
+                    <cm:NumericUpDown Maximum="{Binding ActualHeight, ElementName=Window}" Value="{Binding DwmMarginTop}" />
+                    <cm:NumericUpDown Maximum="{Binding ActualWidth, ElementName=Window}" Value="{Binding DwmMarginRight}" />
+                    <cm:NumericUpDown Maximum="{Binding ActualHeight, ElementName=Window}" Value="{Binding DwmMarginBottom}" />
+                    <Button FocusVisualStyle="{x:Null}" Content="設定" Padding="12,1" Command="{Binding ApplyDwmOptionCommand}"
+                            IsEnabled="{x:Static cm:WindowBehavior.IsDwmSupported}" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Margin="20,8">
+                <TextBlock Width="260" Text="{Binding Password, TargetNullValue=Bindable PasswordBox}" Margin="0,0,0,8" />
+                <PasswordBox Width="260" Password="Bindable PasswordBox" FontFamily="Meiryo"
+                             cm:PasswordBoxBehavior.BindsPassword="True"
+                             cm:PasswordBoxBehavior.Password="{Binding Password, Mode=TwoWay}" />
+            </StackPanel>
+        </WrapPanel>
+    </Grid>
+</Window>
