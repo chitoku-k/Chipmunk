@@ -86,14 +86,14 @@ You need to neither write any code-behind nor make a reference to the Expression
 ```xml
 <PasswordBox xmlns:cm="clr-namespace:Chipmunk;assembly=Chipmunk"
              cm:PasswordBoxBehavior.BindsPassword="True"
-             cm:PasswordBoxBehavior.Password="{Binding Password, Mode=TwoWay}" />
+             cm:PasswordBoxBehavior.Password="{Binding Password}" />
 ```
 
 - BindsPassword (bool)
  - Sets whether to bind Password property
 - Password (string)
  - Sets binding to the Password propery
- - USE Mode PROPERTY TO BIND IN TWO-WAY
+ - Specify Mode property of the binding to TwoWay (default)
 
 
 ###NumericUpDown
