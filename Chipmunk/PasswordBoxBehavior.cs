@@ -73,7 +73,7 @@ namespace Chipmunk
         /// Chipmunk.PasswordBoxBehavior.Password 添付プロパティを識別します。
         /// </summary>
         public static readonly DependencyProperty PasswordProperty =
-            DependencyProperty.RegisterAttached("Password", typeof(string), typeof(PasswordBoxBehavior), new PropertyMetadata(""));
+            DependencyProperty.RegisterAttached("Password", typeof(string), typeof(PasswordBoxBehavior), new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
         #endregion
 

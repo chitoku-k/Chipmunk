@@ -80,7 +80,7 @@
                 <TextBlock Width="260" Text="{Binding Password, TargetNullValue=Bindable PasswordBox}" Margin="0,0,0,8" />
                 <PasswordBox Width="260" Password="Bindable PasswordBox" FontFamily="Meiryo"
                              cm:PasswordBoxBehavior.BindsPassword="True"
-                             cm:PasswordBoxBehavior.Password="{Binding Password, Mode=TwoWay}" />
+                             cm:PasswordBoxBehavior.Password="{Binding Password}" />
             </StackPanel>
         </WrapPanel>
     </Grid>
