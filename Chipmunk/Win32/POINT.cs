@@ -41,19 +41,13 @@ namespace Chipmunk.Win32
         /// </summary>
         /// <param name="point">作成元の <see cref="System.Windows.Point"/></param>
         /// <returns>作成された <see cref="Chipmunk.Win32.POINT"/></returns>
-        public static POINT ToPOINT(this Point point)
-        {
-            return new POINT((int)point.X, (int)point.Y);
-        }
+        public static POINT ToPOINT(this Point point) => new POINT((int)point.X, (int)point.Y);
 
         /// <summary>
         /// <see cref="Chipmunk.Win32.POINT"/> から <see cref="System.Windows.Point"/> を作成します。
         /// </summary>
         /// <param name="point">作成元の <see cref="Chipmunk.Win32.POINT"/></param>
         /// <returns>作成された <see cref="System.Windows.Point"/></returns>
-        public static Point ToPoint(this POINT point)
-        {
-            return new Point(point.X, point.Y);
-        }
+        public static Point ToPoint(this POINT point) => new Point(point.X, point.Y);
     }
 }

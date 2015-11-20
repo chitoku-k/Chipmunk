@@ -25,10 +25,7 @@ namespace Chipmunk
         /// <param name="element">プロパティ値の読み取り元の要素。</param>
         /// <returns>IsMinimizedButtonEnabled 添付プロパティの値。</returns>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static bool GetIsMinimizeButtonEnabled(Window element)
-        {
-            return (bool)element.GetValue(IsMinimizeButtonEnabledProperty);
-        }
+        public static bool GetIsMinimizeButtonEnabled(Window element) => (bool)element.GetValue(IsMinimizeButtonEnabledProperty);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.IsMinimizedButtonEnabled 添付プロパティの値を、指定された <see cref="System.Windows.Window"/> に設定します。
@@ -36,10 +33,7 @@ namespace Chipmunk
         /// <param name="element">Chipmunk.WindowBehavior.IsMinimizedButtonEnabled 添付プロパティを設定する要素。</param>
         /// <param name="value">設定するプロパティ値。</param>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static void SetIsMinimizeButtonEnabled(Window element, bool value)
-        {
-            element.SetValue(IsMinimizeButtonEnabledProperty, value);
-        }
+        public static void SetIsMinimizeButtonEnabled(Window element, bool value) => element.SetValue(IsMinimizeButtonEnabledProperty, value);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.IsMinimizedButtonEnabled 添付プロパティを識別します。
@@ -57,10 +51,7 @@ namespace Chipmunk
         /// <param name="element">プロパティ値の読み取り元の要素。</param>
         /// <returns>Chipmunk.IsMaximizeButtonEnabled 添付プロパティの値。</returns>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static bool GetIsMaximizeButtonEnabled(Window element)
-        {
-            return (bool)element.GetValue(IsMaximizeButtonEnabledProperty);
-        }
+        public static bool GetIsMaximizeButtonEnabled(Window element) => (bool)element.GetValue(IsMaximizeButtonEnabledProperty);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.IsMaximizeButtonEnabled 添付プロパティの値を、指定された <see cref="System.Windows.Window"/> に設定します。
@@ -68,10 +59,7 @@ namespace Chipmunk
         /// <param name="element">Chipmunk.WindowBehavior.IsMaximizeButtonEnabled 添付プロパティを設定する要素。</param>
         /// <param name="value">設定するプロパティ値。</param>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static void SetIsMaximizeButtonEnabled(Window element, bool value)
-        {
-            element.SetValue(IsMaximizeButtonEnabledProperty, value);
-        }
+        public static void SetIsMaximizeButtonEnabled(Window element, bool value) => element.SetValue(IsMaximizeButtonEnabledProperty, value);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.IsMaximizeButtonEnabled 添付プロパティを識別します。
@@ -89,10 +77,7 @@ namespace Chipmunk
         /// <param name="element">プロパティ値の読み取り元の要素。</param>
         /// <returns>Chipmunk.WimdowBehavior.IsHelpButtonEnabled 添付プロパティの値。</returns>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static bool GetIsHelpButtonEnabled(Window element)
-        {
-            return (bool)element.GetValue(IsHelpButtonEnabledProperty);
-        }
+        public static bool GetIsHelpButtonEnabled(Window element) => (bool)element.GetValue(IsHelpButtonEnabledProperty);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.IsHelpButtonEnabled 添付プロパティの値を、指定された <see cref="System.Windows.Window"/> に設定します。
@@ -100,10 +85,7 @@ namespace Chipmunk
         /// <param name="element">Chipmunk.WindowBehavior.IsHelpButtonEnabled 添付プロパティを設定する要素。</param>
         /// <param name="value">設定するプロパティ値。</param>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static void SetIsHelpButtonEnabled(Window element, bool value)
-        {
-            element.SetValue(IsHelpButtonEnabledProperty, value);
-        }
+        public static void SetIsHelpButtonEnabled(Window element, bool value) => element.SetValue(IsHelpButtonEnabledProperty, value);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.IsHelpButtonEnabled 添付プロパティを識別します。
@@ -121,10 +103,7 @@ namespace Chipmunk
         /// <param name="element">プロパティ値の読み取り元の要素。</param>
         /// <returns>Chipmunk.IsControlButtonVisible 添付プロパティの値。</returns>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static bool GetIsControlButtonVisible(Window element)
-        {
-            return (bool)element.GetValue(IsControlButtonVisibleProperty);
-        }
+        public static bool GetIsControlButtonVisible(Window element) => (bool)element.GetValue(IsControlButtonVisibleProperty);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.IsControlButtonVisible 添付プロパティの値を、指定された <see cref="System.Windows.Window"/> に設定します。
@@ -132,10 +111,7 @@ namespace Chipmunk
         /// <param name="element">Chipmunk.WindowBehavior.IsControlButtonVisible 添付プロパティを設定する要素。</param>
         /// <param name="value">設定するプロパティ値。</param>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static void SetIsControlButtonVisible(Window element, bool value)
-        {
-            element.SetValue(IsControlButtonVisibleProperty, value);
-        }
+        public static void SetIsControlButtonVisible(Window element, bool value) => element.SetValue(IsControlButtonVisibleProperty, value);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.IsControlButtonVisible 添付プロパティを識別します。
@@ -153,10 +129,7 @@ namespace Chipmunk
         /// <param name="element">プロパティ値の読み取り元の要素。</param>
         /// <returns>Chipmunk.IsCloseButtonEnabled 添付プロパティの値。</returns>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static bool GetIsCloseButtonEnabled(Window element)
-        {
-            return (bool)element.GetValue(IsCloseButtonEnabledProperty);
-        }
+        public static bool GetIsCloseButtonEnabled(Window element) => (bool)element.GetValue(IsCloseButtonEnabledProperty);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.IsCloseButtonEnabled 添付プロパティの値を、指定された <see cref="System.Windows.Window"/> に設定します。
@@ -164,10 +137,7 @@ namespace Chipmunk
         /// <param name="element">Chipmunk.WindowBehavior.IsCloseButtonEnabled 添付プロパティを設定する要素。</param>
         /// <param name="value">設定するプロパティ値。</param>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static void SetIsCloseButtonEnabled(Window element, bool value)
-        {
-            element.SetValue(IsCloseButtonEnabledProperty, value);
-        }
+        public static void SetIsCloseButtonEnabled(Window element, bool value) => element.SetValue(IsCloseButtonEnabledProperty, value);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.IsCloseButtonEnabled 添付プロパティを識別します。
@@ -185,10 +155,7 @@ namespace Chipmunk
         /// <param name="element">プロパティ値の読み取り元の要素。</param>
         /// <returns>Chipmunk.IsIconVisible 添付プロパティの値。</returns>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static bool GetIsIconVisible(Window element)
-        {
-            return (bool)element.GetValue(IsIconVisibleProperty);
-        }
+        public static bool GetIsIconVisible(Window element) => (bool)element.GetValue(IsIconVisibleProperty);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.IsIconVisible 添付プロパティの値を、指定された <see cref="System.Windows.Window"/> に設定します。
@@ -196,10 +163,7 @@ namespace Chipmunk
         /// <param name="element">Chipmunk.WindowBehavior.IsIconVisible 添付プロパティを設定する要素。</param>
         /// <param name="value">設定するプロパティ値。</param>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static void SetIsIconVisible(Window element, bool value)
-        {
-            element.SetValue(IsIconVisibleProperty, value);
-        }
+        public static void SetIsIconVisible(Window element, bool value) => element.SetValue(IsIconVisibleProperty, value);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.IsIconVisible 添付プロパティを識別します。
@@ -217,10 +181,7 @@ namespace Chipmunk
         /// <param name="element">プロパティ値の読み取り元の要素。</param>
         /// <returns>Chipmunk.DwmComposition 添付プロパティの値。</returns>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static DwmCompositionOption GetDwmComposition(Window element)
-        {
-            return (DwmCompositionOption)element.GetValue(DwmCompositionProperty);
-        }
+        public static DwmCompositionOption GetDwmComposition(Window element) => (DwmCompositionOption)element.GetValue(DwmCompositionProperty);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.DwmComposition 添付プロパティの値を、指定された <see cref="System.Windows.Window"/> に設定します。
@@ -228,10 +189,7 @@ namespace Chipmunk
         /// <param name="element">Chipmunk.WindowBehavior.DwmComposition 添付プロパティを設定する要素。</param>
         /// <param name="value">設定するプロパティ値。</param>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static void SetDwmComposition(Window element, DwmCompositionOption value)
-        {
-            element.SetValue(DwmCompositionProperty, value);
-        }
+        public static void SetDwmComposition(Window element, DwmCompositionOption value) => element.SetValue(DwmCompositionProperty, value);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.DwmComposition 添付プロパティを識別します。
@@ -249,10 +207,7 @@ namespace Chipmunk
         /// <param name="element">プロパティ値の読み取り元の要素。</param>
         /// <returns>Chipmunk.WindowBehavior.NonClientArea 添付プロパティの値。</returns>
         [AttachedPropertyBrowsableForType(typeof(UIElement))]
-        public static Window GetNonClientArea(UIElement element)
-        {
-            return (Window)element.GetValue(NonClientAreaProperty);
-        }
+        public static Window GetNonClientArea(UIElement element) => (Window)element.GetValue(NonClientAreaProperty);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.NonClientArea 添付プロパティの値を、指定された <see cref="System.Windows.UIElement"/> に設定します。
@@ -260,10 +215,7 @@ namespace Chipmunk
         /// <param name="element">Chipmunk.WindowBehavior.NonClientArea 添付プロパティを設定する要素。</param>
         /// <param name="value">設定するプロパティ値。</param>
         [AttachedPropertyBrowsableForType(typeof(UIElement))]
-        public static void SetNonClientArea(UIElement element, Window value)
-        {
-            element.SetValue(NonClientAreaProperty, value);
-        }
+        public static void SetNonClientArea(UIElement element, Window value) => element.SetValue(NonClientAreaProperty, value);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.NonClientArea 添付プロパティを識別します。
@@ -281,10 +233,7 @@ namespace Chipmunk
         /// <param name="element">プロパティ値の読み取り元の要素。</param>
         /// <returns>Chipmunk.WindowBehavior.HelpCommand 添付プロパティの値。</returns>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static ICommand GetHelpCommand(Window element)
-        {
-            return (ICommand)element.GetValue(HelpCommandProperty);
-        }
+        public static ICommand GetHelpCommand(Window element) => (ICommand)element.GetValue(HelpCommandProperty);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.HelpCommand 添付プロパティの値を、指定された <see cref="System.Windows.Window"/> に設定します。
@@ -292,10 +241,7 @@ namespace Chipmunk
         /// <param name="element">Chipmunk.WindowBehavior.HelpCommand 添付プロパティを設定する要素。</param>
         /// <param name="value">設定するプロパティ値。</param>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static void SetHelpCommand(Window element, ICommand value)
-        {
-            element.SetValue(HelpCommandProperty, value);
-        }
+        public static void SetHelpCommand(Window element, ICommand value) => element.SetValue(HelpCommandProperty, value);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.HelpCommand 添付プロパティを識別します。
@@ -313,10 +259,7 @@ namespace Chipmunk
         /// <param name="element">プロパティ値の読み取り元の要素。</param>
         /// <returns>Chipmunk.WindowBehavior.HelpCommandParameter 添付プロパティの値。</returns>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static object GetHelpCommandParameter(Window element)
-        {
-            return element.GetValue(HelpCommandParameterProperty);
-        }
+        public static object GetHelpCommandParameter(Window element) => element.GetValue(HelpCommandParameterProperty);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.HelpCommandParameter 添付プロパティの値を、指定された <see cref="System.Windows.DependencyObject"/> に設定します。
@@ -324,10 +267,7 @@ namespace Chipmunk
         /// <param name="element">Chipmunk.WindowBehavior.HelpCommandParameter 添付プロパティを設定する要素。</param>
         /// <param name="value">設定するプロパティ値。</param>
         [AttachedPropertyBrowsableForType(typeof(Window))]
-        public static void SetHelpCommandParameter(Window element, object value)
-        {
-            element.SetValue(HelpCommandParameterProperty, value);
-        }
+        public static void SetHelpCommandParameter(Window element, object value) => element.SetValue(HelpCommandParameterProperty, value);
 
         /// <summary>
         /// Chipmunk.WindowBehavior.HelpCommandParameter 添付プロパティを識別します。
@@ -340,24 +280,19 @@ namespace Chipmunk
         /// <summary>
         /// 実行中のオペレーティングシステムで Desktop Window Manager (DWM) がサポートされているかどうかを示す値を取得します。
         /// </summary>
-        public static bool IsDwmSupported
-        {
-            get { return Environment.OSVersion.Version.Major >= 6; }
-        }
+        public static bool IsDwmSupported { get; } = Environment.OSVersion.Version.Major >= 6;
 
         private static Dictionary<Window, WindowBehaviorOption> _windowDictionary = new Dictionary<Window, WindowBehaviorOption>();
 
-        private static IntPtr GetWindowHandleFromWindow(Window window)
-        {
-            return new WindowInteropHelper(window).Handle;
-        }
+        private static IntPtr GetWindowHandleFromWindow(Window window) => new WindowInteropHelper(window).EnsureHandle();
 
         private static void SetWindowStyle(IntPtr hWnd, WS target, bool enabled)
         {
             var style = NativeMethods.GetWindowLong(hWnd, GWL.STYLE) | target;
             if (!enabled)
+            {
                 style ^= target;
-
+            }
             NativeMethods.SetWindowLong(hWnd, GWL.STYLE, style);
             NativeMethods.SetWindowPos(hWnd, IntPtr.Zero, 0, 0, 0, 0, SWP.NOMOVE | SWP.NOSIZE | SWP.NOZORDER | SWP.FRAMECHANGED);
         }
@@ -366,8 +301,9 @@ namespace Chipmunk
         {
             var style = NativeMethods.GetWindowLong(hWnd, GWL.EXSTYLE) | target;
             if (!enabled)
+            {
                 style ^= target;
-
+            }
             NativeMethods.SetWindowLong(hWnd, GWL.EXSTYLE, style);
             NativeMethods.SetWindowPos(hWnd, IntPtr.Zero, 0, 0, 0, 0, SWP.NOMOVE | SWP.NOSIZE | SWP.NOZORDER | SWP.FRAMECHANGED);
         }
@@ -375,21 +311,11 @@ namespace Chipmunk
         private static void RegisterWindow(Window window, Action<IntPtr> action)
         {
             if (window == null)
+            {
                 return;
+            }
 
-            var hWnd = GetWindowHandleFromWindow(window);
-            if (hWnd == IntPtr.Zero)
-            {
-                window.SourceInitialized += (sender, e) =>
-                {
-                    RegisterWindow(window, action);
-                    action(GetWindowHandleFromWindow(window));
-                };
-            }
-            else
-            {
-                action(hWnd);
-            }
+            action(GetWindowHandleFromWindow(window));
 
             if (_windowDictionary.ContainsKey(window))
             {
@@ -398,10 +324,7 @@ namespace Chipmunk
             else
             {
                 _windowDictionary.Add(window, new WindowBehaviorOption());
-                if (hWnd == IntPtr.Zero)
-                    window.SourceInitialized += (sender, e) => RegisterWndProc(window);
-                else
-                    RegisterWndProc(window);
+                RegisterWndProc(window);
             }
         }
 
@@ -416,11 +339,13 @@ namespace Chipmunk
                 var message = (WM)msg;
 
                 if ((message == WM.THEMECHANGED || message == WM.DWMCOMPOSITIONCHANGED) && option.DwmComposition != null)
+                {
                     DwmCompositionApply(window, hWnd, option.DwmComposition);
-
+                }
                 if (message == WM.SYSCOMMAND && wParam.ToInt32() == (int)SC.CLOSE && (!option.IsCloseButtonEnabled || !option.IsControlButtonEnabled))
+                {
                     handled = true;
-
+                }
                 if (message == WM.SYSCOMMAND && wParam.ToInt32() == (int)SC.CONTEXTHELP)
                 {
                     handled = true;
@@ -429,9 +354,10 @@ namespace Chipmunk
                     var param = GetHelpCommandParameter(window);
 
                     if (command != null && command.CanExecute(param))
+                    {
                         command.Execute(param);
+                    }
                 }
-                
                 return IntPtr.Zero;
             };
             source.AddHook(hook);
@@ -457,7 +383,9 @@ namespace Chipmunk
         {
             var window = sender as Window;
             if (window == null)
+            {
                 return;
+            }
 
             RegisterWindow(window, hWnd => SetWindowStyle(hWnd, WS.SYSMENU, (bool)e.NewValue));
             _windowDictionary[window].IsControlButtonEnabled = (bool)e.NewValue;
@@ -467,7 +395,9 @@ namespace Chipmunk
         {
             var window = sender as Window;
             if (window == null)
+            {
                 return;
+            }
 
             RegisterWindow(window, hWnd =>
             {
@@ -475,7 +405,9 @@ namespace Chipmunk
                 var modify = MF.BYCOMMAND | MF.ENABLED;
 
                 if (!(bool)e.NewValue)
+                {
                     modify |= MF.GRAYED;
+                }
 
                 NativeMethods.EnableMenuItem(menu, SC.CLOSE, modify);
             });
@@ -487,7 +419,9 @@ namespace Chipmunk
         {
             var window = sender as Window;
             if (window == null)
+            {
                 return;
+            }
 
             if (window.IsLoaded)
             {
@@ -506,7 +440,9 @@ namespace Chipmunk
         {
             var window = sender as Window;
             if (window == null || !IsDwmSupported)
+            {
                 return;
+            }
 
             var option = e.NewValue as DwmCompositionOption;
             RegisterWindow(window, hWnd => DwmCompositionApply(window, hWnd, option));
@@ -521,8 +457,9 @@ namespace Chipmunk
             var background = margin.Equals(0) || !isEnabled ? option.Background : Color.FromArgb(0x00, option.Background.R, option.Background.G, option.Background.B);
 
             if (isEnabled)
+            {
                 NativeMethods.DwmExtendFrameIntoClientArea(source.Handle, ref margin);
-
+            }
             window.Background = new SolidColorBrush(background);
             source.CompositionTarget.BackgroundColor = background;
         }
@@ -531,40 +468,31 @@ namespace Chipmunk
         {
             var element = sender as UIElement;
             var window = e.NewValue as Window;
-
-            if (window != null)
+            if (window == null)
             {
-                element.MouseLeftButtonDown += (_, __) => window.DragMove();
-                element.MouseRightButtonUp += (_sender, _e) =>
-                {
-                    var source = _e.Source as FrameworkElement;
-                    if (source is TextBoxBase || source.ContextMenu != null)
-                        return;
-
-                    var point = NativeMethods.GetCursorPos();
-                    var param = new IntPtr(point.X | point.Y << 16);
-                    var hWnd = GetWindowHandleFromWindow(window);
-                    NativeMethods.PostMessage(hWnd, (WM)0x313, IntPtr.Zero, param);
-                };
+                return;
             }
+
+            element.MouseLeftButtonDown += (_, __) => window.DragMove();
+            element.MouseRightButtonUp += (_sender, _e) =>
+            {
+                var source = _e.Source as FrameworkElement;
+                if (source is TextBoxBase || source.ContextMenu != null)
+                {
+                    return;
+                }
+
+                var point = NativeMethods.GetCursorPos();
+                var param = new IntPtr(point.X | point.Y << 16);
+                var hWnd = GetWindowHandleFromWindow(window);
+                NativeMethods.PostMessage(hWnd, (WM)0x313, IntPtr.Zero, param);
+            };
         }
 
         private class WindowBehaviorOption
         {
-            private bool _isCloseButtonEnabled = true;
-            public bool IsCloseButtonEnabled
-            {
-                get { return _isCloseButtonEnabled; }
-                set { _isCloseButtonEnabled = value; }
-            }
-
-            private bool _isControlButtonEnabled = true;
-            public bool IsControlButtonEnabled
-            {
-                get { return _isControlButtonEnabled; }
-                set { _isControlButtonEnabled = value; }
-            }
-
+            public bool IsCloseButtonEnabled { get; set; } = true;
+            public bool IsControlButtonEnabled { get; set; } = true;
             public DwmCompositionOption DwmComposition { get; set; }
         }
     }
@@ -630,10 +558,7 @@ namespace Chipmunk
         private const string IndivisualLengthPattern = @"([\d\-\.]+)(?:[, ])([\d\-\.]+)(?:[, ])([\d\-\.]+)(?:[, ])([\d\-\.]+)(?:[, ])([#a-zA-Z0-9]+)";
         private static readonly ColorConverter _converter = new ColorConverter();
 
-        private Color ToColor(string s)
-        {
-            return (Color)_converter.ConvertFrom(s);
-        }
+        private Color ToColor(string s) => (Color)_converter.ConvertFrom(s);
 
         private double ToDouble(string s)
         {
@@ -647,10 +572,7 @@ namespace Chipmunk
         /// <param name="context">書式指定コンテキストを提供する <see cref="System.ComponentModel.ITypeDescriptorContext"/>。</param>
         /// <param name="sourceType">変換前の型を表す <see cref="System.Type"/>。</param>
         /// <returns>コンバーターが変換を実行できる場合は true。それ以外の場合は false。</returns>
-        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
-        {
-            return sourceType == typeof(string);
-        }
+        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType) => sourceType == typeof(string);
 
         /// <summary>
         /// 指定したコンテキストとカルチャ情報を使用して、指定したオブジェクトをコンバーターの型に変換します。
@@ -666,15 +588,21 @@ namespace Chipmunk
             var indivisual = Regex.Match(source, IndivisualLengthPattern);
 
             if (indivisual.Success)
+            {
                 return new DwmCompositionOption(ToDouble(indivisual.Groups[1].Value),
                                                 ToDouble(indivisual.Groups[2].Value),
                                                 ToDouble(indivisual.Groups[3].Value),
                                                 ToDouble(indivisual.Groups[4].Value),
                                                 ToColor(indivisual.Groups[5].Value));
+            }
             else if (uniform.Success)
+            {
                 return new DwmCompositionOption(ToDouble(uniform.Groups[1].Value), ToColor(uniform.Groups[2].Value));
+            }
             else
+            {
                 return null;
+            }
         }
     }
 }

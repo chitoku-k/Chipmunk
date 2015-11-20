@@ -63,7 +63,7 @@
                         <TextBox VerticalContentAlignment="Center" TextAlignment="Center" Text="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource StringConverter}, UpdateSourceTrigger=PropertyChanged}" />
                         <Border BorderBrush="#FFABADB3" Background="White" Grid.Column="1" Margin="-2,0,0,0" BorderThickness="0,1,1,1">
                             <StackPanel Margin="1,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                                <RepeatButton Margin="0,1,1,1" Command="{x:Static cm:NumericUpDown.Increase}">
+                                <RepeatButton Margin="0,1,1,1" Command="{x:Static cm:NumericUpDown.IncreaseCommand}">
                                     <Polygon Points="0,4 3,0 6,4" Margin="3,1">
                                         <Polygon.Fill>
                                             <LinearGradientBrush EndPoint="0,1">
@@ -73,7 +73,7 @@
                                         </Polygon.Fill>
                                     </Polygon>
                                 </RepeatButton>
-                                <RepeatButton Margin="0,0,1,1" Command="{x:Static cm:NumericUpDown.Decrease}">
+                                <RepeatButton Margin="0,0,1,1" Command="{x:Static cm:NumericUpDown.DecreaseCommand}">
                                     <Polygon Points="0,0 3,4 6,0" Margin="3,1">
                                         <Polygon.Fill>
                                             <LinearGradientBrush EndPoint="0,1">

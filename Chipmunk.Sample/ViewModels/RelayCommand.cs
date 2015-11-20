@@ -10,24 +10,20 @@ namespace Chipmunk.Sample.ViewModels
         protected readonly Predicate<object> _canExecute;
 
         public RelayCommand(Action<T> execute)
-            : this(execute, null)
-        {
-        }
+            : this(execute, null) { }
 
         public RelayCommand(Action<T> execute, Predicate<object> canExecute)
         {
             if (execute == null)
-                throw new ArgumentNullException("execute");
-
+            {
+                throw new ArgumentNullException(nameof(execute));
+            }
             _execute = execute;
             _canExecute = canExecute;
         }
 
         [DebuggerStepThrough]
-        public bool CanExecute(object parameter)
-        {
-            return _canExecute == null ? true : _canExecute(parameter);
-        }
+        public bool CanExecute(object parameter) => _canExecute?.Invoke(parameter) ?? true;
 
         public event EventHandler CanExecuteChanged
         {
@@ -35,10 +31,7 @@ namespace Chipmunk.Sample.ViewModels
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public void Execute(object parameter)
-        {
-            _execute((T)parameter);
-        }
+        public void Execute(object parameter) => _execute((T)parameter);
     }
 
     public class RelayCommand : ICommand
@@ -47,23 +40,20 @@ namespace Chipmunk.Sample.ViewModels
         protected readonly Predicate<object> _canExecute;
 
         public RelayCommand(Action execute)
-            : this(execute, null)
-        {
-        }
+            : this(execute, null) { }
 
         public RelayCommand(Action execute, Predicate<object> canExecute)
         {
             if (execute == null)
-                throw new ArgumentNullException("execute");
-
+            {
+                throw new ArgumentNullException(nameof(execute));
+            }
             _execute = execute;
             _canExecute = canExecute;
         }
 
-        public bool CanExecute(object parameter)
-        {
-            return _canExecute == null ? true : _canExecute(parameter);
-        }
+        [DebuggerStepThrough]
+        public bool CanExecute(object parameter) => _canExecute?.Invoke(parameter) ?? true;
 
         public event EventHandler CanExecuteChanged
         {

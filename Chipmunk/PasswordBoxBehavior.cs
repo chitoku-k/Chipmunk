@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace Chipmunk
@@ -21,10 +16,7 @@ namespace Chipmunk
         /// <param name="element">プロパティ値の読み取り元の要素。</param>
         /// <returns>Chipmunk.PasswordBoxBehavior.BindsPassword 添付プロパティの値。</returns>
         [AttachedPropertyBrowsableForType(typeof(PasswordBox))]
-        public static bool GetBindsPassword(PasswordBox element)
-        {
-            return (bool)element.GetValue(BindsPasswordProperty);
-        }
+        public static bool GetBindsPassword(PasswordBox element) => (bool)element.GetValue(BindsPasswordProperty);
 
         /// <summary>
         /// Chipmunk.PasswordBoxBehavior.BindsPassword 添付プロパティの値を、指定された <see cref="System.Windows.Controls.PasswordBox"/> に設定します。
@@ -32,10 +24,7 @@ namespace Chipmunk
         /// <param name="element">Chipmunk.PasswordBoxBehavior.BindsPassword 添付プロパティを設定する要素。</param>
         /// <param name="value">設定するプロパティ値。</param>
         [AttachedPropertyBrowsableForType(typeof(PasswordBox))]
-        public static void SetBindsPassword(PasswordBox element, bool value)
-        {
-            element.SetValue(BindsPasswordProperty, value);
-        }
+        public static void SetBindsPassword(PasswordBox element, bool value) => element.SetValue(BindsPasswordProperty, value);
 
         /// <summary>
         /// Chipmunk.PasswordBoxBehavior.BindsPassword 添付プロパティを識別します。
@@ -53,10 +42,7 @@ namespace Chipmunk
         /// <param name="element">プロパティ値の読み取り元の要素。</param>
         /// <returns>Chipmunk.PasswordBoxBehavior.Password 添付プロパティの値。</returns>
         [AttachedPropertyBrowsableForType(typeof(PasswordBox))]
-        public static string GetPassword(PasswordBox element)
-        {
-            return (string)element.GetValue(PasswordProperty);
-        }
+        public static string GetPassword(PasswordBox element) => (string)element.GetValue(PasswordProperty);
 
         /// <summary>
         /// Chipmunk.PasswordBoxBehavior.Password 添付プロパティの値を、指定された <see cref="System.Windows.Controls.PasswordBox"/> に設定します。
@@ -64,16 +50,13 @@ namespace Chipmunk
         /// <param name="element">Chipmunk.PasswordBoxBehavior.Password 添付プロパティを設定する要素。</param>
         /// <param name="value">設定するプロパティ値。</param>
         [AttachedPropertyBrowsableForType(typeof(PasswordBox))]
-        public static void SetPassword(PasswordBox element, string value)
-        {
-            element.SetValue(PasswordProperty, value);
-        }
+        public static void SetPassword(PasswordBox element, string value) => element.SetValue(PasswordProperty, value);
 
         /// <summary>
         /// Chipmunk.PasswordBoxBehavior.Password 添付プロパティを識別します。
         /// </summary>
         public static readonly DependencyProperty PasswordProperty =
-            DependencyProperty.RegisterAttached("Password", typeof(string), typeof(PasswordBoxBehavior), new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+            DependencyProperty.RegisterAttached(nameof(PasswordBox.Password), typeof(string), typeof(PasswordBoxBehavior), new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
 
         #endregion
 
@@ -81,20 +64,27 @@ namespace Chipmunk
         {
             var element = sender as PasswordBox;
             if (element == null)
+            {
                 return;
+            }
 
             if (!(bool)e.OldValue && (bool)e.NewValue)
+            {
                 element.PasswordChanged += Password_Changed;
-
+            }
             if ((bool)e.OldValue && !(bool)e.NewValue)
+            {
                 element.PasswordChanged -= Password_Changed;
+            }
         }
 
         private static void Password_Changed(object sender, RoutedEventArgs e)
         {
             var element = sender as PasswordBox;
             if (element == null)
+            {
                 return;
+            }
 
             SetPassword(element, element.Password);
         }

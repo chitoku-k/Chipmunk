@@ -22,10 +22,7 @@ namespace Chipmunk
         /// <param name="element">プロパティ値の読み取り元の要素。</param>
         /// <returns><see cref="Chipmunk.TextBoxValidationType"/> 添付プロパティの値。</returns>
         [AttachedPropertyBrowsableForType(typeof(TextBox))]
-        public static TextBoxValidationType GetValidationType(TextBox element)
-        {
-            return (TextBoxValidationType)element.GetValue(ValidationTypeProperty);
-        }
+        public static TextBoxValidationType GetValidationType(TextBox element) => (TextBoxValidationType)element.GetValue(ValidationTypeProperty);
 
         /// <summary>
         /// Chipmunk.TextBoxBehavior.ValidationType 添付プロパティの値を、指定された <see cref="System.Windows.Controls.TextBox"/> に設定します。
@@ -33,10 +30,7 @@ namespace Chipmunk
         /// <param name="element">Chipmunk.TextBoxBehavior.ValidationType 添付プロパティを設定する要素。</param>
         /// <param name="value">設定するプロパティ値。</param>
         [AttachedPropertyBrowsableForType(typeof(TextBox))]
-        public static void SetValidationType(TextBox element, TextBoxValidationType value)
-        {
-            element.SetValue(ValidationTypeProperty, value);
-        }
+        public static void SetValidationType(TextBox element, TextBoxValidationType value) => element.SetValue(ValidationTypeProperty, value);
 
         /// <summary>
         /// Chipmunk.TextBoxBehavior.ValidationType 添付プロパティを識別します。
@@ -46,35 +40,36 @@ namespace Chipmunk
 
         #endregion
 
-        private static Dictionary<TextBox, TextBoxValidationInfo> _textBoxDictionary = new Dictionary<TextBox, TextBoxValidationInfo>();
-        private const string NegativeDecimalPattern = @"^-?(?:\d*\.\d+|\d+\.?)$";
-        private const string NegativeIntegerPattern = @"^-?\d+$";
-        private const string DecimalPattern = @"^(?:\d*\.\d+|\d+\.?)$";
-        private const string IntegerPattern = @"^\d+$";
-        private const string FullWidthPattern = @"[０-９]";
-
-        private static string ToHalfWidth(string s)
+        private static readonly Dictionary<TextBox, TextBoxValidationInfo> TextBoxValidations = new Dictionary<TextBox, TextBoxValidationInfo>();
+        private static readonly Dictionary<TextBoxValidationType, string> Patterns = new Dictionary<TextBoxValidationType, string>
         {
-            return Regex.Replace(s, FullWidthPattern, x => string.Concat(x.Value.Select(y => (char)((int)y - 0xFEE0))));
-        }
+            { TextBoxValidationType.Negative | TextBoxValidationType.Integer, @"^-?\d+$" },
+            { TextBoxValidationType.Negative | TextBoxValidationType.Decimal, @"^-?(?:\d*\.\d+|\d+\.?)$" },
+            { TextBoxValidationType.Integer, @"^\d+$" },
+            { TextBoxValidationType.Decimal, @"^(?:\d*\.\d+|\d+\.?)$" },
+        };
+
+        private static string ToHalfWidth(string s) => Regex.Replace(s, @"[０-９]", x => string.Concat(x.Value.Select(y => (char)((int)y - 0xFEE0))));
 
         private static void ValidationType_Changed(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             var element = sender as TextBox;
             if (element == null)
+            {
                 return;
+            }
             
             element.GotFocus -= OnGotFocus;
             element.TextChanged -= OnTextChanged;
             element.SelectionChanged -= OnSelectionChanged;
-            _textBoxDictionary.Remove(element);
+            TextBoxValidations.Remove(element);
 
             if ((TextBoxValidationType)e.NewValue != TextBoxValidationType.None)
             {
                 element.GotFocus += OnGotFocus;
                 element.TextChanged += OnTextChanged;
                 element.SelectionChanged += OnSelectionChanged;
-                _textBoxDictionary.Add(element, new TextBoxValidationInfo((TextBoxValidationType)e.NewValue, element.Text));
+                TextBoxValidations.Add(element, new TextBoxValidationInfo((TextBoxValidationType)e.NewValue, element.Text));
             }
         }
 
@@ -82,7 +77,9 @@ namespace Chipmunk
         {
             var element = sender as TextBox;
             if (element == null)
+            {
                 return;
+            }
 
             InputMethod.Current.ImeState = InputMethodState.Off;
         }
@@ -90,31 +87,27 @@ namespace Chipmunk
         private static void OnSelectionChanged(object sender, RoutedEventArgs e)
         {
             var element = sender as TextBox;
-            if (!_textBoxDictionary.ContainsKey(element))
-                return;
-            else
-                _textBoxDictionary[element].CaretIndex = element.CaretIndex;
+            if (TextBoxValidations.ContainsKey(element))
+            {
+                TextBoxValidations[element].CaretIndex = element.CaretIndex;
+            }
         }
 
         private static void OnTextChanged(object sender, TextChangedEventArgs e)
         {
             var element = sender as TextBox;
-            if (!_textBoxDictionary.ContainsKey(element))
+            if (!TextBoxValidations.ContainsKey(element))
+            {
                 return;
+            }
 
-            var option = _textBoxDictionary[element].Type;
-            string pattern = null;
-            if (option.HasFlag(TextBoxValidationType.Integer))
-                pattern = IntegerPattern;
-            if (option.HasFlag(TextBoxValidationType.Decimal))
-                pattern = DecimalPattern;
-            if (option.HasFlag(TextBoxValidationType.Negative | TextBoxValidationType.Integer))
-                pattern = NegativeIntegerPattern;
-            if (option.HasFlag(TextBoxValidationType.Negative | TextBoxValidationType.Decimal))
-                pattern = NegativeDecimalPattern;
+            var option = TextBoxValidations[element].Type;
+            string pattern = Patterns.FirstOrDefault(x => option.HasFlag(x.Key)).Value;
 
             if (pattern == null)
+            {
                 return;
+            }
 
             int index = element.CaretIndex;
             element.Text = element.Text == "" ? "0" : ToHalfWidth(element.Text.Replace(",", ""));
@@ -122,30 +115,32 @@ namespace Chipmunk
 
             if (Regex.IsMatch(element.Text, pattern))
             {
-                _textBoxDictionary[element].Text = element.Text;
+                TextBoxValidations[element].Text = element.Text;
             }
             else if (option.HasFlag(TextBoxValidationType.Negative) && (element.Text == "-" || element.Text == "0-"))
             {
-                element.Text = _textBoxDictionary[element].Text = "-0";
+                element.Text = TextBoxValidations[element].Text = "-0";
                 element.CaretIndex = 2;
             }
             else
             {
                 SystemSounds.Beep.Play();
-                element.Text = _textBoxDictionary[element].Text;
-                element.CaretIndex = _textBoxDictionary[element].CaretIndex;
+                element.Text = TextBoxValidations[element].Text;
+                element.CaretIndex = TextBoxValidations[element].CaretIndex;
                 e.Handled = true;
                 return;
             }
 
             if (option.HasFlag(TextBoxValidationType.Decimal) && element.Text.EndsWith("."))
+            {
                 return;
+            }
 
             string d = decimal.Parse(element.Text).ToString();
             if (element.Text != d && element.Text != "-0")
             {
                 element.Text = d;
-                element.CaretIndex = _textBoxDictionary[element].CaretIndex;
+                element.CaretIndex = TextBoxValidations[element].CaretIndex;
             }
         }
 

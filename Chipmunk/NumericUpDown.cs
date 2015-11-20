@@ -12,43 +12,27 @@ namespace Chipmunk
         /// <summary>
         /// <see cref="System.Windows.Controls.Primitives.RangeBase.LargeChange"/> のプロパティと同じ量コントロールの値を減らすコマンドを取得します。
         /// </summary>
-        public static ICommand Decrease = new RoutedCommand("DecreaseCommand", typeof(NumericUpDown), new InputGestureCollection { new KeyGesture(Key.Down) });
+        public static readonly ICommand DecreaseCommand = new RoutedCommand(nameof(DecreaseCommand), typeof(NumericUpDown), new InputGestureCollection { new KeyGesture(Key.Down) });
         /// <summary>
         /// <see cref="System.Windows.Controls.Primitives.RangeBase.LargeChange"/> のプロパティと同じ量コントロールの値を増加するコマンドを取得します。
         /// </summary>
-        public static ICommand Increase = new RoutedCommand("IncreaseCommand", typeof(NumericUpDown), new InputGestureCollection { new KeyGesture(Key.Up) });
+        public static readonly ICommand IncreaseCommand = new RoutedCommand(nameof(IncreaseCommand), typeof(NumericUpDown), new InputGestureCollection { new KeyGesture(Key.Up) });
 
         static NumericUpDown()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(NumericUpDown), new FrameworkPropertyMetadata(typeof(NumericUpDown)));
-            CommandManager.RegisterClassCommandBinding(typeof(NumericUpDown), new CommandBinding(Decrease, OnDecreaseCommand));
-            CommandManager.RegisterClassCommandBinding(typeof(NumericUpDown), new CommandBinding(Increase, OnIncreaseCommand));
-        }
-
-        private static void OnDecreaseCommand(object sender, ExecutedRoutedEventArgs e)
-        {
-            ((NumericUpDown)sender).OnDecreaseCommand();
-        }
-
-        private static void OnIncreaseCommand(object sender, ExecutedRoutedEventArgs e)
-        {
-            ((NumericUpDown)sender).OnIncreaseCommand();
+            CommandManager.RegisterClassCommandBinding(typeof(NumericUpDown), new CommandBinding(DecreaseCommand, (sender, e) => ((NumericUpDown)sender).OnDecreaseCommand()));
+            CommandManager.RegisterClassCommandBinding(typeof(NumericUpDown), new CommandBinding(IncreaseCommand, (sender, e) => ((NumericUpDown)sender).OnIncreaseCommand()));
         }
 
         /// <summary>
         /// <see cref="Chipmunk.NumericUpDown.Decrease"/> コマンドに応答します。
         /// </summary>
-        public void OnDecreaseCommand()
-        {
-            this.Value -= this.LargeChange;
-        }
+        public void OnDecreaseCommand() => this.Value -= this.LargeChange;
 
         /// <summary>
         /// <see cref="Chipmunk.NumericUpDown.Increase"/> コマンドに応答します。
         /// </summary>
-        public void OnIncreaseCommand()
-        {
-            this.Value += this.LargeChange;
-        }
+        public void OnIncreaseCommand() => this.Value += this.LargeChange;
     }
 }

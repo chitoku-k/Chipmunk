@@ -11,7 +11,7 @@ namespace Chipmunk.Sample.ViewModels
             set 
             { 
                 _isMinimizeButtonEnabled = value;
-                OnPropertyChanged("IsMinimizeButtonEnabled");
+                OnPropertyChanged(nameof(IsMinimizeButtonEnabled));
             }
         }
 
@@ -22,7 +22,7 @@ namespace Chipmunk.Sample.ViewModels
             set 
             { 
                 _isMaximizeButtonEnabled = value;
-                OnPropertyChanged("IsMaximizeButtonEnabled");
+                OnPropertyChanged(nameof(IsMaximizeButtonEnabled));
             }
         }
 
@@ -33,7 +33,7 @@ namespace Chipmunk.Sample.ViewModels
             set 
             { 
                 _isHelpButtonEnabled = value;
-                OnPropertyChanged("IsHelpButtonEnabled");
+                OnPropertyChanged(nameof(IsHelpButtonEnabled));
             }
         }
 
@@ -44,7 +44,7 @@ namespace Chipmunk.Sample.ViewModels
             set 
             { 
                 _isCloseButtonEnabled = value;
-                OnPropertyChanged("IsCloseButtonEnabled");
+                OnPropertyChanged(nameof(IsCloseButtonEnabled));
             }
         }
 
@@ -55,7 +55,7 @@ namespace Chipmunk.Sample.ViewModels
             set
             {
                 _isControlButtonVisible = value;
-                OnPropertyChanged("IsControlButtonVisible");
+                OnPropertyChanged(nameof(IsControlButtonVisible));
             }
         }
 
@@ -66,7 +66,7 @@ namespace Chipmunk.Sample.ViewModels
             set
             {
                 _dwmComposition = value;
-                OnPropertyChanged("DwmComposition");
+                OnPropertyChanged(nameof(DwmComposition));
             }
         }
 
@@ -77,7 +77,7 @@ namespace Chipmunk.Sample.ViewModels
             set
             {
                 _password = value;
-                OnPropertyChanged("Password");
+                OnPropertyChanged(nameof(Password));
             }
         }
 
@@ -88,7 +88,7 @@ namespace Chipmunk.Sample.ViewModels
             set
             { 
                 _dwmMarginLeft = value;
-                OnPropertyChanged("DwmMarginLeft");
+                OnPropertyChanged(nameof(DwmMarginLeft));
             }
         }
 
@@ -99,7 +99,7 @@ namespace Chipmunk.Sample.ViewModels
             set 
             { 
                 _dwmMarginTop = value;
-                OnPropertyChanged("DwmMarginTop");
+                OnPropertyChanged(nameof(DwmMarginTop));
             }
         }
 
@@ -110,7 +110,7 @@ namespace Chipmunk.Sample.ViewModels
             set 
             {
                 _dwmMarginRight = value;
-                OnPropertyChanged("DwmMarginRight");
+                OnPropertyChanged(nameof(DwmMarginRight));
             }
         }
 
@@ -121,7 +121,7 @@ namespace Chipmunk.Sample.ViewModels
             set 
             {
                 _dwmMarginBottom = value;
-                OnPropertyChanged("DwmMarginBottom");
+                OnPropertyChanged(nameof(DwmMarginBottom));
             }
         }
 
@@ -132,13 +132,10 @@ namespace Chipmunk.Sample.ViewModels
             set
             { 
                 _applyDwmOptionCommand = value;
-                OnPropertyChanged("ApplyDwmOptionCommand");
+                OnPropertyChanged(nameof(ApplyDwmOptionCommand));
             }
         }
         
-        private void ApplyDwmOption()
-        {
-            DwmComposition = new DwmCompositionOption(DwmMarginLeft, DwmMarginTop, DwmMarginRight, DwmMarginBottom, Colors.White);
-        }
+        private void ApplyDwmOption() => this.DwmComposition = new DwmCompositionOption(this.DwmMarginLeft, this.DwmMarginTop, this.DwmMarginRight, this.DwmMarginBottom, Colors.White);
     }
 }

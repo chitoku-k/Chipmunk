@@ -57,10 +57,7 @@ namespace Chipmunk.Win32
         /// </summary>
         /// <param name="value"></param>
         /// <returns>等しい場合は true。それ以外の場合は false。</returns>
-        public bool Equals(int value)
-        {
-            return this.Left == this.Top && this.Top == this.Right && this.Right == this.Bottom && this.Bottom == value;
-        }
+        public bool Equals(int value) => this.Left == this.Top && this.Top == this.Right && this.Right == this.Bottom && this.Bottom == value;
     }
 
     /// <summary>
@@ -73,19 +70,13 @@ namespace Chipmunk.Win32
         /// </summary>
         /// <param name="thickness">作成元の <see cref="System.Windows.Thickness"/></param>
         /// <returns>作成された <see cref="Chipmunk.Win32.MARGINS"/></returns>
-        public static MARGINS ToMARGINS(this Thickness thickness)
-        {
-            return new MARGINS((int)thickness.Left, (int)thickness.Top, (int)thickness.Right, (int)thickness.Bottom);
-        }
+        public static MARGINS ToMARGINS(this Thickness thickness) => new MARGINS((int)thickness.Left, (int)thickness.Top, (int)thickness.Right, (int)thickness.Bottom);
 
         /// <summary>
         /// <see cref="Chipmunk.Win32.MARGINS"/> から <see cref="System.Windows.Thickness"/> を作成します。
         /// </summary>
         /// <param name="margins">作成元の <see cref="Chipmunk.Win32.MARGINS"/></param>
         /// <returns>作成された <see cref="System.Windows.Thickness"/></returns>
-        public static Thickness ToThickness(this MARGINS margins)
-        {
-            return new Thickness(margins.Left, margins.Top, margins.Right, margins.Bottom);
-        }
+        public static Thickness ToThickness(this MARGINS margins) => new Thickness(margins.Left, margins.Top, margins.Right, margins.Bottom);
     }
 }
