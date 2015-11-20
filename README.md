@@ -3,15 +3,15 @@ Chipmunk
 
 Chipmunk is a set of WPF attached behaviors that provides some simple attached properties.  
 Simply add a reference to the Chipmunk.dll and specify properties all via XAML.  
-You need to neither write any code-behind nor make a reference to the Expression Blend SDK.
+You need neither write any code-behind nor make a reference to the Expression Blend SDK.
 
-![Sample](http://chitoku.jp/img/chipmunk.png)
+![Sample](https://chitoku.jp/img/chipmunk.png)
 
 ##Features
 
 ###Window Behavior
 - Completely full control of System Menu
- - Enables or disables minimize button, maximize button, help button and close button independently with each other
+ - Enables or disables the minimize button, maximize button, help button and close button independently with each other
  - Automatically processes Window Message if needed.
 - Hides an icon on the caption bar (title bar)
 - Enables DWM (Desktop Window Manager) Aero Composition
@@ -38,7 +38,7 @@ You need to neither write any code-behind nor make a reference to the Expression
 ##Usage
 
 ###WindowBehavior
-```xml
+```xaml
 <Window xmlns:cm="clr-namespace:Chipmunk;assembly=Chipmunk"
         cm:WindowBehavior.DwmComposition="-1,0,0,0,White"
         cm:WindowBehavior.IsIconVisible="False"
@@ -69,7 +69,7 @@ You need to neither write any code-behind nor make a reference to the Expression
 
 
 ###TextBoxBehavior
-```xml
+```xaml
 <TextBox xmlns:cm="clr-namespace:Chipmunk;assembly=Chipmunk"
          cm:TextBoxBehavior.ValidationType="Negative,Decimal" />
 ```
@@ -83,7 +83,7 @@ You need to neither write any code-behind nor make a reference to the Expression
 
 
 ###PasswordBoxBehavior
-```xml
+```xaml
 <PasswordBox xmlns:cm="clr-namespace:Chipmunk;assembly=Chipmunk"
              cm:PasswordBoxBehavior.BindsPassword="True"
              cm:PasswordBoxBehavior.Password="{Binding Password}" />
@@ -97,7 +97,7 @@ You need to neither write any code-behind nor make a reference to the Expression
 
 
 ###NumericUpDown
-```xml
+```xaml
 <cm:NumericUpDown LargeChange="0.1" Minimum="0" Maximum="100" />
 ```
 
