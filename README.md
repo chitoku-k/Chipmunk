@@ -5,7 +5,7 @@ Chipmunk is a set of WPF attached behaviors that provides some simple attached p
 Simply add a reference to the Chipmunk.dll and specify properties all via XAML.  
 You need neither write any code-behind nor make a reference to the Expression Blend SDK.
 
-![Sample](https://chitoku.jp/img/chipmunk.png)
+![Sample](https://raw.githubusercontent.com/wiki/chitoku-k/Chipmunk/preview.png)
 
 ##Features
 
